@@ -5,22 +5,34 @@
     padding-left: 1%;
     padding-top: 1%;
 }
+.bordered {
+    margin: 1%;
+}
 
 .navbar {
     color: darkgray;
     padding-left: 15%;
 }
 
+/*Глобальные стили для хедеров на всём сайте*/
 header {
+    color: black;
     padding-left: 1%;
     padding-top: 1.2%;
 }
+#header-index{
+    color:#b200ff;
+}
 
+header, body, footer {
+    background-color:rgb(243, 197, 248);
+}
 footer {
     position: absolute;
     bottom: 0;
     font-size: medium;
     color: dimgrey;
+    padding-left:1%;
 }
 
 aside {
@@ -39,6 +51,16 @@ aside {
 body {
     padding-left: 11%;
 }
+
+/* Стили футера */
+footer {
+    position: static;
+    bottom: 0;
+    font-size: medium;
+    color: dimgrey;
+    line-height: 66%;
+}
+
 /* Стили панели навигации */
 .navbar p {
     color: darkgray;
@@ -48,3 +70,6 @@ body {
     .navbar p:hover {
         color: aliceblue;
     }
+#search{
+    padding-left:1%;
+}

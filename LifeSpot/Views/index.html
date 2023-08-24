@@ -6,7 +6,7 @@
     <title>LifeSpot</title>
 </head>
 <body>
-    <header>
+    <header id="header-index">
         <!--Заголовок страницы-->
         <h1>LifeSpot - прямые трансляции с улиц</h1>
         <!--Параграф-->
@@ -16,8 +16,8 @@
         <!--Сайд-бар страницы-->
         <aside id="sidebar">
             <div class="navbar">
-                <p>Все трансляции</p>
-                <p>О проекте</p>
+               <a href="\"> <p>Все трансляции</p></a>
+               <a href="\"> <p>О проекте</p></a>
             </div>
         </aside>
         <div class="video-container">
@@ -32,9 +32,11 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <h3 class="video-title"> Лондон, автобусный маршрутт</h3>
         </div>
-        <!--<a href="https://www.youtube.com/watch?v=wCcMcaiRbhM"><button>Санкт-Питербург</button></a>
-    <a href="https://www.youtube.com/watch?v=srlpC5tmhYs"><button>Нью-Йорк</button></a>
-    <a href="https://www.youtube.com/watch?v=JplMzss6_YE"><button>Лондон</button></a>-->
+    </div>
+    <div id="search">
+        <input  type="search" name="VideoSearch" placeholder="Введие название видео" size="20" />
+        <input type="submit" name="VideoSearch" value="Поиск" size="20" />
+
     </div>
     <!--Футер страницы находится под основной частью (body)-->
     <footer>
