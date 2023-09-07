@@ -1,15 +1,7 @@
 
-let currentDate = Date().toLocaleString();
-let age = prompt("Enter your age");
-if (age >= 18) {
-    alert("Glad to see you on LifeSpot! Today " + currentDate);
-}
-else {
-    alert("Bye!");
-    window.location.href = "http://google.com";
-}
 
-function filterContent() {
+
+let contentFilter = function filterContent() {
     // Сохраняем введённое пользователем значение и приводим его к нижнему регистру
     let inputText = document.getElementsByTagName('input')[0].value.toLowerCase();
     // Находим и сохраняем коллекцию блоков с видео
@@ -29,5 +21,17 @@ function filterContent() {
             // Нужные элементы оставляем видимыми
             elements[i].style.display = 'inline-block';
         }
+    }
+}
+
+let sessionHendler = function handleSession() {
+    let currentDate = Date().toLocaleString();
+    let age = prompt("Enter your age");
+    if (age >= 18) {
+        alert("Glad to see you on LifeSpot! Today " + currentDate);
+    }
+    else {
+        alert("Bye!");
+        window.location.href = "http://google.com";
     }
 }
