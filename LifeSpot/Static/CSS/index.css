@@ -11,13 +11,14 @@
 
 .navbar {
     color: darkgray;
-    padding-left: 15%;
+    padding-left: 10%;
+    padding-right:20%;
 }
 
 /*Глобальные стили для хедеров на всём сайте*/
 header {
     color: black;
-    padding-left: 1%;
+    padding-left: 7%;
     padding-top: 1.2%;
 }
 #header-index{
@@ -27,17 +28,11 @@ header {
 header, body, footer {
     background-color:rgb(243, 197, 248);
 }
-footer {
-    position: absolute;
-    bottom: 0;
-    font-size: medium;
-    color: dimgrey;
-    padding-left:1%;
-}
+
 
 aside {
     height: 100%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
-    width: 10%;
+    width: 12%;
     position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
     z-index: 1; /* Сайд-бар будет поверх остальных элементов */
     top: 0; /* Сайдбар будет в самой верхней части страницы */
@@ -53,14 +48,15 @@ body {
 }
 
 /* Стили футера */
+
+
 footer {
-    position: static;
+    position: absolute;
     bottom: 0;
     font-size: medium;
     color: dimgrey;
-    line-height: 66%;
+    padding-left: 1%;
 }
-
 /* Стили панели навигации */
 .navbar p {
     color: darkgray;

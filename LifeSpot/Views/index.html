@@ -5,35 +5,36 @@
     <link href="Static/CSS/index.css" rel="stylesheet" type="text/css">
     <script src="Static/JS/index.js"></script>
     <script>
-       // let session = handleSession();
-       // sessionLog(session);
+        //checkAge();
+        handleSession();
+        sessionLog();
+        setTimeout(() =>
+            alert("Нравится LifeSpot? " + '\n' + "Подпишитесь на наш Instagram @lifespot999!"),
+            60000);
     </script>
     <title>LifeSpot</title>
 </head>
+<header id="header-index">
+    <!--Заголовок страницы-->
+    <h1>LifeSpot - прямые трансляции с улиц</h1>
+    <!--Параграф-->
+    <p>Покажем, что происходит прямо сейчас</p>
+</header>
+<!--SIDEBAR-->
 <body>
-    <header id="header-index">
-        <!--Заголовок страницы-->
-        <h1>LifeSpot - прямые трансляции с улиц</h1>
-        <!--Параграф-->
-        <p>Покажем, что происходит прямо сейчас</p>
-    </header>
+
     <div class="bordered">
-        <!--Сайд-бар страницы-->
-        <aside id="sidebar">
-            <div class="navbar">
-                <a href="\"> <p>Все трансляции</p></a>
-                <a href="\"> <p>О проекте</p></a>
-            </div>
-        </aside>
+
+    
         <div id="search">
-            <input type="text" oninput=" 
-             filterContent(userInput);
-            //contentFilter(document.getElementsByTagName('input')[0].value.toLowerCase()) 
+            <input type="text" oninput="
+             filterContent(inputParseFunction);
+            //contentFilter(document.getElementsByTagName('input')[0].value.toLowerCase())
             " size=50%>
 
 
         </div>
-        
+
         <div class="video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/wCcMcaiRbhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <h3 class="video-title"> Санкт-Петербург, Невский проспект</h3>
@@ -47,11 +48,9 @@
             <h3 class="video-title"> Лондон, автобусный маршрутт</h3>
         </div>
     </div>
-    
-    <!--Футер страницы находится под основной частью (body)-->
-    <footer>
-        <p>LifeSpot - все права защищены</p>
-        <p>Связаться с нами: contact@lifespot.ru</p>
-    </footer>
+
+
+
 </body>
+<!--FOOTER-->
 </html>
