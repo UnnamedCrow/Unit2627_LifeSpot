@@ -1,9 +1,12 @@
 
+function userInput() {
 
+    return document.getElementsByTagName('input')[0].value.toLowerCase();
+}
 
-let contentFilter = function filterContent() {
+function filterContent(userInpu) {
     // Сохраняем введённое пользователем значение и приводим его к нижнему регистру
-    let inputText = document.getElementsByTagName('input')[0].value.toLowerCase();
+    
     // Находим и сохраняем коллекцию блоков с видео
     let elements = document.getElementsByClassName('video-container');
 
@@ -13,7 +16,7 @@ let contentFilter = function filterContent() {
         console.log(videoDescription);
 
         // Сравниваем описание с вводимым текстом
-        if (!videoDescription.includes(inputText)) {
+        if (!videoDescription.includes(userInpu())) {
             // Скрываем ненужные элементы
             elements[i].style.display = 'none';
         }
@@ -24,14 +27,36 @@ let contentFilter = function filterContent() {
     }
 }
 
-let sessionHendler = function handleSession() {
-    let currentDate = Date().toLocaleString();
-    let age = prompt("Enter your age");
-    if (age >= 18) {
-        alert("Glad to see you on LifeSpot! Today " + currentDate);
+// Обработка сессии (объявлено через declaration)
+function handleSession() {
+    // создадим объект Map для хранения сессии
+    let session = new Map();
+    // Сохраним UserAgent
+    session.set("userAgent", window.navigator.userAgent)
+
+    // Запросим возраст пользователя и тоже сохраним
+    session.set("age", prompt("Enter your age"))
+
+    // Проверка на возраст и сохранение сессии
+    if (session.get("age") >= 18) {
+        let startDate = new Date().toLocaleString();
+
+        alert("Glad to see you in LifeSpot! " + '\n' + "Current time: " + startDate);
+        session.set("startDate", startDate)
     }
     else {
-        alert("Bye!");
-        window.location.href = "http://google.com";
+        alert("Get out!");
+        window.location.href = "http://www.google.com"
+    }
+
+    // Теперь мы возвращаем объект сессии
+    return session;
+}
+
+// Логирование сессии (объявлено через expression)
+let sessionLog = function logSession(session) {
+    // Вывод в консоль
+    for (let result of session) {
+        console.log(result)
     }
 }

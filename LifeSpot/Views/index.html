@@ -5,7 +5,8 @@
     <link href="Static/CSS/index.css" rel="stylesheet" type="text/css">
     <script src="Static/JS/index.js"></script>
     <script>
-        //sessionHendler();
+       // let session = handleSession();
+       // sessionLog(session);
     </script>
     <title>LifeSpot</title>
 </head>
@@ -25,7 +26,10 @@
             </div>
         </aside>
         <div id="search">
-            <input type="text" oninput=" contentFilter() " size=50%>
+            <input type="text" oninput=" 
+             filterContent(userInput);
+            //contentFilter(document.getElementsByTagName('input')[0].value.toLowerCase()) 
+            " size=50%>
 
 
         </div>
