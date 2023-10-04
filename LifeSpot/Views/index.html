@@ -5,12 +5,12 @@
     <link href="Static/CSS/index.css" rel="stylesheet" type="text/css">
     <script src="Static/JS/index.js"></script>
     <script>
-        //checkAge();
-        handleSession();
-        sessionLog();
-        setTimeout(() =>
-            alert("Нравится LifeSpot? " + '\n' + "Подпишитесь на наш Instagram @lifespot999!"),
-            60000);
+        // проверка возраста и сохранение данных пользовательской сессии
+        handleSession(logger, checker);
+        // функция для получения пользовательского ввода    
+        const inputParseFunction = function () {
+            return document.getElementsByTagName('input')[0].value.toLowerCase();
+        }
     </script>
     <title>LifeSpot</title>
 </head>
@@ -28,7 +28,7 @@
     
         <div id="search">
             <input type="text" oninput="
-             filterContent(inputParseFunction);
+             filterContent();
             //contentFilter(document.getElementsByTagName('input')[0].value.toLowerCase())
             " size=50%>
 
