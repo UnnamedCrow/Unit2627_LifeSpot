@@ -1,54 +1,107 @@
-/*
-* «‡ÔÓÒËÏ ÔÓÎ¸ÁÓ‚‡ÚÂÎ¸ÒÍËÈ ‚‚Ó‰
-* Ë ÒÓı‡ÌËÏ ÓÚÁ˚‚ ‚ Ó·˙ÂÍÚ
+Ôªø/*
+* –ó–∞–ø—Ä–æ—Å–∏–º –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—å—Å–∫–∏–π –≤–≤–æ–¥
+* –∏ —Å–æ—Ö—Ä–∞–Ω–∏–º –æ—Ç–∑—ã–≤ –≤ –æ–±—ä–µ–∫—Ç
 * 
 * */
+// –°–æ–∑–¥–∞–¥–∏–º —Ñ—É–Ω–∫—Ü–∏—é-–∫–æ–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä –¥–ª—è —Å–æ–∑–¥–∞–Ω–∏—è –∫–æ–º–º–µ–Ω—Ç–∞—Ä–∏—è
+function Comment() {
+
+    // –ó–∞–ø—Ä–æ—Å–∏–º –∏–º—è –∞–≤—Ç–æ—Ä–∞
+    this.author = prompt("Enter your name");
+    if (this.author == null) {
+        this.empty = true;
+        return;
+    }
+
+    // –ó–∞–ø—Ä–æ—Å–∏–º —Ç–µ–∫—Å—Ç –∫–æ–º–µ–Ω—Ç–∞—Ä–∏—è
+    this.text = prompt("Enter your comment");
+    if (this.text == null) {
+        this.empty = true;
+        return;
+    }
+
+    // –°–æ—Ö—Ä–∞–Ω–∏–º –¥–∞—Ç—É –≤–≤–æ–¥–∞
+    this.date = new Date().toLocaleString();
+}
+
 function getReview() {
-    // —ÓÁ‰‡‰ËÏ Ó·˙ÂÍÚ
-    let review = {}
 
-    // —Óı‡ÌËÏ Ò‚ÓÈÒÚ‚Ó ËÏÂÌË
-    review["userName"] = prompt(" ‡Í ‚‡Ò ÁÓ‚ÛÚ ?")
-    if (review["userName"] == null) {
-        return
+    let comment = new Comment();
+
+    // –ü—Ä–æ–≤–µ—Ä—è–µ–º –≤–≤—ë–ª –ª–∏ –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—å –¥–∞–Ω–Ω—ã–µ
+    if (comment.empty) {
+        return;
     }
-
-    // —Óı‡ÌËÏ ÚÂÍÒÚ ÓÚÁ˚‚‡
-    review["comment"] = prompt("Õ‡ÔË¯ËÚÂ Ò‚ÓÈ ÓÚÁ˚‚")
-    if (review["comment"] == null) {
-        return
-    }
-
-    // —Óı‡ÌËÏ ÚÂÍÛ˘ÂÂ ‚ÂÏˇ
-    review["date"] = new Date().toLocaleString()
-
-    let enableLike = confirm("’Ó˜Â¯¸, ˜ÚÓ· Ú‚ÓÈ ÍÓÏÏÂÌÚ‡ËÈ ÏÓ„ÎË ÓˆÂÌËÚ¸?");
+    let enableLike = confirm("Do you want to have some likes?");
 
     if (enableLike) {
-        let comment = Object.create(review);
-        comment.rate = 0;
-        // ƒÓ·‡‚ËÏ Ì‡ ÒÚ‡ÌËˆÛ
-        writeReview(comment);
+        let review = Object.create(comment);
+        review.rate = 0;
+        // –î–æ–±–∞–≤–∏–º –Ω–∞ —Å—Ç—Ä–∞–Ω–∏—Ü—É
+        writeReview(review);
     }
     else {
-        // ƒÓ·‡‚ËÏ Ì‡ ÒÚ‡ÌËˆÛ
-        writeReview(review);
+        // –î–æ–±–∞–≤–∏–º –Ω–∞ —Å—Ç—Ä–∞–Ω–∏—Ü—É
+        writeReview(comment);
     }
 
 
 
 }
 /*
-* «‡ÔË¯ÂÏ ÓÚÁ˚‚ Ì‡ ÒÚ‡ÌËˆÛ
+* –ó–∞–ø–∏—à–µ–º –æ—Ç–∑—ã–≤ –Ω–∞ —Å—Ç—Ä–∞–Ω–∏—Ü—É
     * 
 * */
 const writeReview = review => {
+    // –ì–µ–Ω–µ—Ä–∏—Ä—É–µ–º Id –¥–ª—è –∫–Ω–æ–ø–∫–∏
+
+    let likeId = Math.random();
+    let dislikeId = Math.random();
     let commentRate = '';
     if (review.hasOwnProperty('rate')) {
-        commentRate += '        <b style="color:chocolate">–ÂÈÚËÌ„:</b>    ' + review.rate;
+        commentRate += '<i>' + review.rate + ' <button id="' + likeId + '"style= "border:none" onclick= "addLike(this.id)">' + ' ‚ù§Ô∏è</button> <button id="' + dislikeId +'" style = "border: none" onclick="disLike(this.id)"> üíî </button></i>';
     }
     document.getElementsByClassName('reviews')[0].innerHTML += '    <div class="review-text">\n' +
-        `<p> <i> <b>${review['userName']}</b>  ${review['date']} ${commentRate}</i></p>` +
-        `<p>${review['comment']}</p>` +
+        `<p> <i> <b>${review['author']}</b>  ${review['date']} ${commentRate}</i></p>` +
+        `<p>${review['text']}</p>` +
         '</div>';
+}
+
+ // –§—É–Ω–∫—Ü–∏—è –¥–æ–±–∞–≤–ª–µ–Ω–∏—è –ª–∞–π–∫–∞
+function addLike(id) {
+
+    // –ü–æ–∏—Å–∫ –Ω—É–∂–Ω–æ–≥–æ —ç–ª–µ–º–µ–Ω—Ç–∞ –ø–æ id
+    let element = document.getElementById(id).parentNode;
+
+    // –ü–æ–ª—É—á–∞–µ–º —Ç–µ–∫—Å—Ç –∏–∑ —ç–ª–µ–º–µ–Ω—Ç–∞
+    let array = element.innerHTML.split(' ');
+
+    // –ü–æ–ª—É—á–∏–º –∑–Ω–∞—á–µ–Ω–∏–µ —Å—á—ë—Ç—á–∏–∫–∞ –∏–∑ –º–∞—Å—Å–∏–≤–∞
+    let counter = parseInt(array[0], 10);
+
+    counter += 1;
+    
+    array[0] = `${counter}`;
+
+    element.innerHTML = array.join(' ');
+
+}
+// –§—É–Ω–∫—Ü–∏—è –¥–∏–∑–ª–∞–π–∫–∞
+function disLike(id) {
+
+    // –ü–æ–∏—Å–∫ –Ω—É–∂–Ω–æ–≥–æ —ç–ª–µ–º–µ–Ω—Ç–∞ –ø–æ id
+    let element = document.getElementById(id).parentNode;
+
+    // –ü–æ–ª—É—á–∞–µ–º —Ç–µ–∫—Å—Ç –∏–∑ —ç–ª–µ–º–µ–Ω—Ç–∞
+    let array = element.innerHTML.split(' ');
+
+    // –ü–æ–ª—É—á–∏–º –∑–Ω–∞—á–µ–Ω–∏–µ —Å—á—ë—Ç—á–∏–∫–∞ –∏–∑ –º–∞—Å—Å–∏–≤–∞
+    let counter = parseInt(array[0], 10);
+
+    counter -= 1;
+
+    array[0] = `${counter}`;
+
+    element.innerHTML = array.join(' ');
+
 }
